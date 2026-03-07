@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-^@a1*+a5^enb6=7roab9+^a^py0b=qb(2%o@o6#rh7$a8hqjop"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 try:
     hostname = socket.gethostname()
@@ -36,7 +36,7 @@ try:
 except Exception:
     pass
 
-ALLOWED_HOSTS += ['.compute.internal', '.compute-1.amazonaws.com']
+ALLOWED_HOSTS += [".compute.internal", ".compute-1.amazonaws.com"]
 
 # Application definition
 
@@ -84,15 +84,15 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 # Use PostgreSQL on EB, SQLite locally
-if os.getenv('RDS_DB_NAME'):
+if os.getenv("RDS_DB_NAME"):
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": os.getenv('RDS_DB_NAME'),
-            "USER": os.getenv('RDS_USERNAME'),
-            "PASSWORD": os.getenv('RDS_PASSWORD'),
-            "HOST": os.getenv('RDS_HOSTNAME'),
-            "PORT": os.getenv('RDS_PORT', '5432'),
+            "NAME": os.getenv("RDS_DB_NAME"),
+            "USER": os.getenv("RDS_USERNAME"),
+            "PASSWORD": os.getenv("RDS_PASSWORD"),
+            "HOST": os.getenv("RDS_HOSTNAME"),
+            "PORT": os.getenv("RDS_PORT", "5432"),
         }
     }
 else:
@@ -109,7 +109,10 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
