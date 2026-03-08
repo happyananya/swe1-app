@@ -25,3 +25,16 @@ script:
 
 after_success:
   - coveralls --service=github
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "swe1-app"
+  env: "swe1-app-env"
+  bucket_name: "swe1-app-deployments"
+
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+  on:
+    branch: main
