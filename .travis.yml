@@ -4,7 +4,11 @@ python:
   - "3.14"
 
 env:
-  - DJANGO_SETTINGS_MODULE=myproject.settings
+  global:
+    - COVERALLS_SERVICE_NAME=travis-pro
+  jobs:
+    - DJANGO_SETTINGS_MODULE=myproject.settings
+
 
 install:
   - pip install -r requirements.txt
@@ -21,4 +25,4 @@ script:
 
 after_success:
   - coverage report
-  - coveralls --service=travis-ci --branch=$TRAVIS_BRANCH
+  - coveralls --branch=$TRAVIS_BRANCH
