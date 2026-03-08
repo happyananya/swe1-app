@@ -36,7 +36,12 @@ try:
 except Exception:
     pass
 
-ALLOWED_HOSTS += ['*',".compute.internal", ".compute-1.amazonaws.com", "swe1-app-env.eba-eq3c2mbs.us-east-2.elasticbeanstalk.com"]
+ALLOWED_HOSTS += [
+    "*",
+    ".compute.internal",
+    ".compute-1.amazonaws.com",
+    "swe1-app-env.eba-eq3c2mbs.us-east-2.elasticbeanstalk.com",
+]
 
 # Application definition
 
