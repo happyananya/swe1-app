@@ -1,0 +1,2 @@
+service_name: travis-ci
+service_branch: $TRAVIS_BRANCH
