@@ -24,5 +24,4 @@ script:
   - coverage run manage.py test
 
 after_success:
-  - coverage report
-  - coveralls --branch=$TRAVIS_BRANCH
+  - coveralls --service=github
